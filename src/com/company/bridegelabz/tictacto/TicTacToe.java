@@ -27,7 +27,7 @@ public class TicTacToe
         {
             for(int j=1;j<=3;j++)
             {
-                //System.out.print(k);
+                
                 System.out.print(board[k]);
                   k++;
                 if(j<3)
