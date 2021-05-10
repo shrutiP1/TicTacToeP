@@ -22,20 +22,26 @@ public class TicTacToe
     }
     public static void displayBoard()
     {
+        int k=0;
         for(int i=0;i<3;i++)
         {
             for(int j=0;j<3;j++)
             {
-                System.out.print("___");
+
+                System.out.print(board[k]);
+                k++;
                 if(j<2)
                 {
-                    System.out.print("|");
+                    System.out.print(" | ");
                 }
-            }
 
+            }
             System.out.println();
+            System.out.println("____________");
+
+
         }
-        System.out.println("   |   |   ");
+        System.out.println("  |   |   ");
     }
     public static void main(String[] args)
     {
