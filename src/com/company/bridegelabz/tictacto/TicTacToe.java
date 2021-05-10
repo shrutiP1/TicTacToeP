@@ -4,7 +4,6 @@ import java.util.*;
 
 public class TicTacToe {
     public static char board[] = new char[10];
-
     public static char[] printMatrix() {
         board = new char[10];
         for (int i = 1; i < board.length; i++) {
@@ -47,11 +46,19 @@ public class TicTacToe {
             if (Arrays.asList(validCells).contains(index) && isSpaceFree(board, index)) {
                 return index;
             }
+            else
+            {
+                System.out.println("Position is already filled");
+            }
         }
-
+    }
+    private static void checkFreePosition(int userMove)
+    {
+        Scanner scan=new Scanner(System.in);
+        board[userMove]=getInput(scan);
+        displayBoard();
 
     }
-
     private static boolean isSpaceFree(char[] board, int index) {
         return board[index] == ' ';
     }
@@ -70,5 +77,8 @@ public class TicTacToe {
         userLetter = getInput(userInput);
         board[userMove] = userLetter;
         displayBoard();
+        //UC5
+        userMove=getUserMove(board,userInput);
+        checkFreePosition(userMove);
     }
 }
