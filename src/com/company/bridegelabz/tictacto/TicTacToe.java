@@ -4,6 +4,7 @@ import java.util.*;
 
 public class TicTacToe {
     public static char board[] = new char[10];
+    static String user,computer;
     public static char[] printMatrix() {
         board = new char[10];
         for (int i = 1; i < board.length; i++) {
@@ -59,6 +60,31 @@ public class TicTacToe {
         displayBoard();
 
     }
+    private static void deletePreviousArray()
+    {
+        for(int i=1;i<10;i++)
+        {
+            board[i]=' ';
+
+        }
+    }
+    private static void checkWhoPlays()
+    {
+        Scanner scan=new Scanner(System.in);
+        int head=1 ,tails=0;
+        int random=(int)Math.floor(Math.random()*10)%2;
+        if(random==head)
+        {
+            user="x";
+            System.out.println("users turn first");
+        }
+        else
+        {
+            computer="x";
+            System.out.println("computer turn first");
+        }
+
+    }
     private static boolean isSpaceFree(char[] board, int index) {
         return board[index] == ' ';
     }
@@ -80,5 +106,8 @@ public class TicTacToe {
         //UC5
         userMove=getUserMove(board,userInput);
         checkFreePosition(userMove);
+        //UC6
+        deletePreviousArray();
+        checkWhoPlays();
     }
 }
